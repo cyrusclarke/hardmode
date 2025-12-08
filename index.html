@@ -18,6 +18,15 @@
     <div id="generative-canvas"></div>
 
     <nav>
+        <!-- MIT Logo - Required for Compliance -->
+        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="mit-logo-link" aria-label="Massachusetts Institute of Technology">
+            <picture>
+                <source media="(max-width: 768px)" srcset="mit-logo-grey-mobile.png">
+                <source media="(min-width: 769px)" srcset="mit-logo-grey-header.png, mit-logo-grey-header-2x.png 2x">
+                <img src="mit-logo-grey-header.png" alt="MIT" class="mit-logo-nav">
+            </picture>
+        </a>
+        
         <span class="nav-title" id="nav-title">HARD MODE</span>
         <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu">
             <span class="hamburger-line"></span>
@@ -642,8 +651,37 @@
             </section>
 
             <footer>
-                <p>© 2026 HARD MODE • MIT Hardware x AI Hackathon • MIT Media Lab</p>
-                <p style="margin-top: 10px; font-size: 12px;">Contact: hardmode@media.mit.edu • Site by <a href="https://cyrus.website" target="_blank" rel="noopener noreferrer">Cyrus</a></p>
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3 class="footer-heading">HARD MODE</h3>
+                        <p class="footer-text">MIT Hardware x AI Hackathon</p>
+                        <p class="footer-text">Hosted by MIT Media Lab</p>
+                        <p class="footer-contact">Contact: <a href="mailto:hardmode@media.mit.edu">hardmode@media.mit.edu</a></p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-heading">MIT Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://mit.edu" target="_blank" rel="noopener noreferrer">Massachusetts Institute of Technology</a></li>
+                            <li><a href="https://www.media.mit.edu" target="_blank" rel="noopener noreferrer">MIT Media Lab</a></li>
+                            <li><a href="https://accessibility.mit.edu" target="_blank" rel="noopener noreferrer">Accessibility</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="footer-heading">Legal</h3>
+                        <ul class="footer-links">
+                            <li><a href="code-of-conduct.html">Code of Conduct</a></li>
+                            <li><a href="#">Terms and Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>© 2026 Massachusetts Institute of Technology</p>
+                    <p>Site by <a href="https://cyrus.website" target="_blank" rel="noopener noreferrer">Cyrus</a></p>
+                </div>
             </footer>
         </div>
     </div>

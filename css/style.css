@@ -92,16 +92,31 @@ nav::before {
     );
 }
 
-nav::after {
-    content: '//NAVIGATION';
+/* MIT Logo in Nav - replaces //NAVIGATION */
+.mit-logo-link {
     position: absolute;
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    font-family: 'Courier New', monospace;
-    font-size: 0.625em;
-    color: rgba(0, 255, 65, 0.3);
-    letter-spacing: 0.1em;
+    z-index: 15;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.mit-logo-link:hover {
+    opacity: 1;
+}
+
+.mit-logo-nav {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .mit-logo-nav {
+        height: 28px;
+    }
 }
 
 nav ul {
@@ -1450,11 +1465,102 @@ p {
 
 footer {
     margin-top: 100px;
-    padding: 40px 0;
-    border-top: 1px solid rgba(0, 255, 65, 0.2);
+    padding: 60px 0 40px 0;
+    border-top: 2px solid rgba(0, 255, 65, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto 40px auto;
+    padding: 0 80px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-heading {
+    font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+    font-size: 1em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.footer-text {
+    font-size: 0.95em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.footer-contact {
+    font-size: 0.95em;
+    color: var(--text-dim);
+    margin-top: 10px;
+}
+
+.footer-contact a {
+    color: var(--text-light);
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 255, 65, 0.5);
+}
+
+.footer-contact a:hover {
+    color: var(--primary-color);
+    text-decoration-color: var(--primary-color);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
     text-align: center;
+    padding-top: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-dim);
     font-size: 0.875em;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+.footer-bottom a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: var(--primary-color);
 }
 
 /* Responsive */
@@ -1472,6 +1578,10 @@ footer {
         width: 100%;
         padding: 30px 20px;
         min-height: 70px;
+    }
+    
+    .mit-logo-link {
+        left: 15px;
     }
     
     nav::after {
@@ -1731,6 +1841,27 @@ footer {
         width: 100%;
         margin-left: 0;
         padding: 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 20px;
+    }
+    
+    .footer-bottom {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .footer-heading {
+        font-size: 0.9em;
+    }
+    
+    .footer-text,
+    .footer-contact,
+    .footer-links a {
+        font-size: 0.85em;
     }
     
     .hero {
