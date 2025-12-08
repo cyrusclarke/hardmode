@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code of Conduct - HARD MODE</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <span class="nav-title" id="nav-title">HARD MODE</span>
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#tracks" class="nav-link">Why</a></li>
+            <li><a href="index.html#schedule" class="nav-link">Schedule</a></li>
+            <li><a href="index.html#prizes" class="nav-link">Prizes</a></li>
+            <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="right-panel">
+            <section class="code-of-conduct-page">
+                <h1>HARD MODE CODE OF CONDUCT</h1>
+                
+                <div class="coc-section">
+                    <h2>Purpose</h2>
+                    <p>HardMode exists to push boundaries: of technology, creativity, and collaboration.</p>
+                    <p>Our goal is to create an environment where anyone can build, experiment, and learn without fear of exclusion or harassment. We value curiosity, respect, and integrity as much as technical skill.</p>
+                    <p>HardMode is committed to providing a friendly, safe, and inclusive space for everyone, regardless of gender, sexual orientation, disability, physical appearance, body size, race, ethnicity, age, socioeconomic background, or religion (or lack thereof).</p>
+                    <p><strong>No jerks. No harassment. No exceptions.</strong></p>
+                    <p>This Code of Conduct applies to all HardMode spaces, online, in person, and anywhere our community interacts.</p>
+                </div>
+
+                <div class="coc-section">
+                    <h2>What We Expect</h2>
+                    <ul class="coc-list">
+                        <li><strong>Be respectful.</strong> Treat others as collaborators, not competitors.</li>
+                        <li><strong>Communicate clearly.</strong> Listen as much as you speak.</li>
+                        <li><strong>Collaborate before you clash.</strong> Most problems can be solved through conversation.</li>
+                        <li><strong>Think about impact.</strong> Your words, actions, and prototypes affect others.</li>
+                        <li><strong>No harassment, discrimination, or demeaning behavior.</strong></li>
+                        <li><strong>See something, say something.</strong> Alert organizers if you notice unsafe or inappropriate behavior.</li>
+                    </ul>
+                    <p>We're all here to learn and build. Help make this a space where everyone can do that fully.</p>
+                </div>
+
+                <div class="coc-section">
+                    <h2>What We Don't Tolerate</h2>
+                    <p>Harassment, discrimination, intimidation, or hostility of any kind—including but not limited to:</p>
+                    <ul class="coc-list">
+                        <li>Violence or threats of violence.</li>
+                        <li>Sexist, racist, homophobic, transphobic, ableist, or otherwise discriminatory language or jokes.</li>
+                        <li>Personal insults or attacks.</li>
+                        <li>Posting or sharing others' personal information without consent.</li>
+                        <li>Unwelcome sexual attention or contact.</li>
+                        <li>Stalking, following, or deliberate intimidation (online or in person).</li>
+                        <li>Sustained disruption of talks, demos, or workshops.</li>
+                        <li>Inappropriate recording or photography.</li>
+                        <li>Advocating or encouraging any of the above.</li>
+                    </ul>
+                    <p>If you act in a way that violates this policy, you may be warned, removed from the event, or permanently banned. One strike is enough.</p>
+                </div>
+
+                <div class="coc-section">
+                    <h2>Reporting</h2>
+                    <p>If someone makes you (or anyone) feel unsafe or unwelcome, please report it.</p>
+                    <p>You can report in one of two ways:</p>
+                    
+                    <div class="coc-subsection">
+                        <h3>Anonymous Report</h3>
+                        <p>Submit an anonymous report using the <a href="#">form here</a> (link coming soon). We won't be able to contact you directly, but we will investigate and take action.</p>
+                    </div>
+
+                    <div class="coc-subsection">
+                        <h3>Personal Report</h3>
+                        <p>Find any HardMode organizer (look for lanyards or staff badges) or contact us directly at <a href="mailto:hardmode@media.mit.edu">hardmode@media.mit.edu</a></p>
+                        <p>If needed, we can connect you with venue security, MIT support services, or local authorities. You won't be asked to confront anyone directly.</p>
+                        <p><strong>Emergency: 911</strong></p>
+                    </div>
+
+                    <p>We take all reports seriously and will do our best to ensure your safety and privacy.</p>
+                </div>
+
+                <div class="coc-section">
+                    <h2>Scope</h2>
+                    <p>This Code of Conduct applies across all HardMode spaces, physical venues, online communication channels, and affiliated community interactions, before, during, and after the event.</p>
+                    <p>Behavior outside of official activities that impacts the safety or well-being of participants will be treated the same way.</p>
+                </div>
+
+                <div class="coc-section">
+                    <h2>Attribution</h2>
+                    <p>This Code of Conduct is adapted from Reality Hack's Code of Conduct and the Geek Feminism Wiki (CC0).</p>
+                    <p>This version is released under a Creative Commons Attribution 3.0 Unported License.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const navTitle = document.getElementById('nav-title');
+
+        if (hamburgerMenu && navMenu) {
+            hamburgerMenu.addEventListener('click', function() {
+                hamburgerMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (hamburgerMenu && navMenu && 
+                !hamburgerMenu.contains(event.target) && 
+                !navMenu.contains(event.target)) {
+                hamburgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
+
