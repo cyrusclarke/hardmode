@@ -1345,40 +1345,34 @@
             });
         }
         
-        // Show HARD MODE in nav and toggle terminal sticky (mobile only)
-        const navTitle = document.getElementById('nav-title');
+        // Toggle terminal sticky on mobile (mobile only)
         const mobileTitle = document.querySelector('.mobile-title');
         const mobileTerminal = document.querySelector('.mobile-terminal');
         
-        function handleNavTitle() {
-            if (window.innerWidth <= 1024 && mobileTitle && navTitle && mobileTerminal) {
+        function handleMobileTerminal() {
+            if (window.innerWidth <= 1024 && mobileTitle && mobileTerminal) {
                 const titleRect = mobileTitle.getBoundingClientRect();
                 const navRect = document.querySelector('nav').getBoundingClientRect();
                 
                 // If nav has passed the title (title is above nav)
                 if (titleRect.bottom < navRect.top) {
-                    navTitle.classList.add('visible');
                     // Remove sticky from terminal so it scrolls up with content
                     mobileTerminal.classList.add('scrolled');
                 } else {
-                    navTitle.classList.remove('visible');
                     // Keep terminal sticky when title hasn't reached nav
                     mobileTerminal.classList.remove('scrolled');
                 }
-            } else if (navTitle) {
-                navTitle.classList.remove('visible');
-                if (mobileTerminal) {
-                    mobileTerminal.classList.remove('scrolled');
-                }
+            } else if (mobileTerminal) {
+                mobileTerminal.classList.remove('scrolled');
             }
         }
         
         // Listen to scroll events
-        window.addEventListener('scroll', handleNavTitle);
-        window.addEventListener('resize', handleNavTitle);
+        window.addEventListener('scroll', handleMobileTerminal);
+        window.addEventListener('resize', handleMobileTerminal);
         
         // Initial check
-        handleNavTitle();
+        handleMobileTerminal();
         
         // Discord Tooltip on Click
         const discordTooltip = document.querySelector('.discord-tooltip');

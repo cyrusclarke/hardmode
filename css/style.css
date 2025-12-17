@@ -115,7 +115,8 @@ nav::before {
 
 @media (max-width: 768px) {
     .mit-logo-nav {
-        height: 28px;
+        height: 36px;
+        width: auto;
     }
 }
 
@@ -1576,12 +1577,17 @@ footer {
     
     nav {
         width: 100%;
-        padding: 30px 20px;
+        padding: 25px 20px;
         min-height: 70px;
     }
     
     .mit-logo-link {
-        left: 15px;
+        left: 20px;
+    }
+    
+    .mit-logo-nav {
+        height: 36px;
+        width: auto;
     }
     
     nav::after {
@@ -1590,6 +1596,11 @@ footer {
     
     .hamburger-menu {
         display: flex;
+    }
+    
+    /* Hide nav title on mobile */
+    .nav-title {
+        display: none !important;
     }
     
     nav ul {
@@ -1609,6 +1620,20 @@ footer {
         z-index: 100;
         border-left: 2px solid var(--primary-color);
         box-shadow: -5px 0 30px rgba(0, 255, 65, 0.2);
+    }
+    
+    /* Add HARD MODE title inside hamburger menu */
+    nav ul::before {
+        content: 'HARD MODE';
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+        font-size: 1.8em;
+        letter-spacing: 0.1em;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
     }
     
     nav ul.active {
