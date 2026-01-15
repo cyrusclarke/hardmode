@@ -2128,6 +2128,10 @@ footer {
     aspect-ratio: 1 / 1;
 }
 
+.person-photo[src="headshots/jenni.jpg"] {
+    filter: grayscale(100%);
+}
+
 .person-name {
     font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
     color: var(--text-light);
