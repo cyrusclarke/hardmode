@@ -50,3 +50,12 @@ yarn-error.log*
 # Optional: Netlify
 .netlify
 
+# Video builder tool
+video_builder/
+.vercel
+
+# Sponsorship materials
+sponsorship-poster.html
+
+# Sponsorship materials
+sponsorship-poster.html
