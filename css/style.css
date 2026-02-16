@@ -876,14 +876,7 @@ section::before {
     letter-spacing: 0.05em !important;
     margin-bottom: 12px !important;
     text-transform: uppercase;
-}
-
-.track-detail h3 .track-category {
     color: var(--primary-color);
-}
-
-.track-detail h3 .track-title {
-    color: var(--text-light);
 }
 
 .track-detail p {
