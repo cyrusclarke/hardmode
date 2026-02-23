@@ -2030,6 +2030,21 @@ footer {
         box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
     }
     
+    /* Mobile Waitlist Button - override primary green */
+    .mobile-cta-button.cta-closed {
+        border-color: var(--text-light);
+        color: var(--text-light);
+        background: transparent;
+        margin-bottom: 20px;
+    }
+
+    .mobile-cta-button.cta-closed:hover {
+        background: rgba(220, 220, 220, 0.1);
+        border-color: #fff;
+        color: #fff;
+        box-shadow: none;
+    }
+
     /* Mobile Volunteer Button */
     .mobile-cta-button.cta-volunteer {
         margin: 20px auto 60px auto;
