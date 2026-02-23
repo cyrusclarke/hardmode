@@ -746,9 +746,9 @@ section::before {
 /* CTA Closed State */
 .cta-button.cta-closed,
 .mobile-cta-button.cta-closed {
-    background: rgba(136, 136, 136, 0.2);
-    border: 2px solid var(--text-dim);
-    color: var(--text-dim);
+    background: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
     cursor: pointer;
     pointer-events: auto;
     text-decoration: none;
@@ -757,9 +757,9 @@ section::before {
 
 .cta-button.cta-closed:hover,
 .mobile-cta-button.cta-closed:hover {
-    background: rgba(136, 136, 136, 0.3);
-    border-color: var(--text-light);
-    color: var(--text-light);
+    background: rgba(220, 220, 220, 0.1);
+    border-color: #fff;
+    color: #fff;
 }
 
 .cta-button.cta-closed::before,
