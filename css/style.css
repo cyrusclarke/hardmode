@@ -2807,5 +2807,10 @@ footer {
         max-height: 60px !important;
         transform: scale(1.5);
     }
+
+    .sponsor-logo img[src*="IFM_Logo_White.svg"] {
+        max-height: 80px !important;
+        transform: scale(1.6);
+    }
 }
 
