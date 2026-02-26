@@ -2785,6 +2785,12 @@ footer {
     vertical-align: middle;
 }
 
+/* IFM - scale up to match other gold sponsors */
+.sponsor-logo img[src*="IFM_Logo_White.svg"] {
+    max-height: 80px !important;
+    transform: scale(2.0);
+}
+
 /* Tenstorrent - increase size to match other silver sponsors */
 .sponsor-logo img[src*="Tenstorrent.png"] {
     max-height: 70px !important;
