@@ -2791,6 +2791,11 @@ footer {
     transform: scale(2.0);
 }
 
+/* GigLab - scale down slightly */
+.sponsor-logo img[src*="giglab.svg"] {
+    transform: scale(0.7);
+}
+
 /* Tenstorrent - increase size to match other silver sponsors */
 .sponsor-logo img[src*="Tenstorrent.png"] {
     max-height: 70px !important;
