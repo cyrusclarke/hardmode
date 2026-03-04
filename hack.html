@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACK — HARD MODE</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/style.css?v=2.2">
+    <style>
+        /* ── Hack page specific styles ── */
+
+        .hack-page {
+            max-width: 900px;
+            padding: 120px 60px 100px 60px;
+        }
+
+        .hack-page h1 {
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 3.5em;
+            color: var(--primary-color);
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .hack-page .page-sub {
+            font-size: 1.1em;
+            color: var(--text-dim);
+            margin-bottom: 60px;
+            letter-spacing: 0.02em;
+        }
+
+        .hack-section {
+            margin-bottom: 72px;
+        }
+
+        .hack-section h2 {
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 1.4em;
+            color: var(--primary-color);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .hack-section h2::after { display: none; }
+
+        .hack-section p {
+            font-size: 1.05em;
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* ── Info cards ── */
+        .info-card {
+            background: rgba(0, 255, 65, 0.02);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin-bottom: 16px;
+        }
+
+        .info-card .card-title {
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 1em;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .info-card.warning {
+            border-color: rgba(0, 255, 65, 0.5);
+            background: rgba(0, 255, 65, 0.04);
+        }
+
+        .info-card.warning .card-title { color: var(--primary-color); }
+
+        /* Two-col info grid */
+        .info-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* ── Key detail row ── */
+        .detail-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .detail-label {
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 0.85em;
+            color: var(--primary-color);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            min-width: 90px;
+            padding-top: 2px;
+        }
+
+        .detail-value {
+            font-size: 1em;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* ── Bullet list ── */
+        .hack-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hack-list li {
+            font-size: 1.05em;
+            color: var(--text-dim);
+            line-height: 1.8;
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .hack-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+        }
+
+        /* ── Button ── */
+        .hack-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 36px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 1em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .hack-btn:hover {
+            background: var(--primary-color);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+        }
+
+        /* ── Workshop table ── */
+        .workshop-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .workshop-table thead th {
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 0.8em;
+            color: var(--primary-color);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .workshop-table tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background 0.2s;
+        }
+
+        .workshop-table tbody tr:hover {
+            background: rgba(0, 255, 65, 0.03);
+        }
+
+        .workshop-table td {
+            padding: 14px 14px;
+            color: var(--text-dim);
+            line-height: 1.5;
+            vertical-align: top;
+        }
+
+        .workshop-table .col-time {
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 0.85em;
+            color: var(--text-light);
+            white-space: nowrap;
+            min-width: 130px;
+        }
+
+        .workshop-table .col-who {
+            font-weight: 500;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .workshop-table .col-where {
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 0.8em;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        .workshop-badge {
+            display: inline-block;
+            font-size: 0.75em;
+            padding: 2px 8px;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 3px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        /* ── Schedule (reuse homepage styles + location badge) ── */
+        .timeline-location {
+            display: inline-block;
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 0.75em;
+            color: var(--primary-color);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 10px;
+            letter-spacing: 0.05em;
+            vertical-align: middle;
+        }
+
+        .timeline-item.concurrent {
+            border-left-color: rgba(0, 255, 65, 0.3);
+            margin-left: 20px;
+            padding-left: 16px;
+        }
+
+        .timeline-item.deadline {
+            border-left-color: rgba(255, 100, 100, 0.5);
+        }
+
+        .timeline-item.deadline .timeline-title {
+            color: #ff9090;
+        }
+
+        .timeline-item.keynote {
+            border-left-color: rgba(0, 255, 65, 0.8);
+            background: rgba(0, 255, 65, 0.03);
+        }
+
+        /* ── Sponsor prize grid ── */
+        .sponsor-prize-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .sponsor-prize-item {
+            background: rgba(0, 255, 65, 0.02);
+            border: 1px solid rgba(0, 255, 65, 0.15);
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--text-dim);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        /* ── Discord block ── */
+        .discord-block {
+            background: rgba(0, 255, 65, 0.02);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            border-radius: 8px;
+            padding: 25px 30px;
+        }
+
+        .discord-block .channel {
+            font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
+            font-size: 1em;
+            color: var(--primary-color);
+            letter-spacing: 0.05em;
+            margin-bottom: 5px;
+        }
+
+        .discord-block .channel-desc {
+            font-size: 0.95em;
+            color: var(--text-dim);
+            margin-bottom: 18px;
+            padding-left: 16px;
+            border-left: 2px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .consent-note {
+            margin-top: 28px;
+            padding: 20px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 0.95em;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .hack-page {
+                padding: 80px 20px 60px 20px;
+            }
+            .hack-page h1 { font-size: 2.5em; }
+            .info-two-col { grid-template-columns: 1fr; }
+            .sponsor-prize-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .sponsor-prize-grid { grid-template-columns: 1fr; }
+            .workshop-table { font-size: 0.85em; }
+            .workshop-table .col-time { min-width: auto; }
+            .timeline-item.concurrent { margin-left: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="mit-logo-link" aria-label="Massachusetts Institute of Technology">
+            <picture>
+                <source media="(max-width: 768px)" srcset="mit-logo-grey-mobile.png 1x, mit-logo-grey-header-2x.png 2x">
+                <source media="(min-width: 769px)" srcset="mit-logo-grey-header.png 1x, mit-logo-grey-header-2x.png 2x">
+                <img src="mit-logo-grey-header.png" alt="MIT" class="mit-logo-nav">
+            </picture>
+        </a>
+        <span class="nav-title" id="nav-title">HARD MODE</span>
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="hack.html" class="nav-link nav-hack active">HACK</a></li>
+            <li><a href="index.html#hero" class="nav-link">Home</a></li>
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#schedule" class="nav-link">Schedule</a></li>
+            <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hack-page">
+
+        <h1>HACK</h1>
+        <p class="page-sub">Everything you need to know for the weekend.</p>
+
+        <!-- ── REGISTRATION & LOCATION ── -->
+        <div class="hack-section">
+            <h2>Registration & Location</h2>
+
+            <div class="info-two-col" style="margin-bottom: 20px;">
+                <div class="info-card" style="margin-bottom: 0;">
+                    <div class="card-title">Key Details</div>
+                    <div class="detail-row">
+                        <span class="detail-label">Dates</span>
+                        <span class="detail-value">Friday 6 – Sunday 8 March 2026</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Location</span>
+                        <span class="detail-value">MIT Media Lab – 75 Amherst St, Cambridge, MA 02142<br><span style="color: var(--text-dim); font-size: 0.9em;">Building E14</span></span>
+                    </div>
+                </div>
+                <div class="info-card" style="margin-bottom: 0;">
+                    <div class="card-title">Individual Registration</div>
+                    <div class="detail-row">
+                        <span class="detail-label">Where</span>
+                        <span class="detail-value">Ground floor, main entrance (follow the signs)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Opens</span>
+                        <span class="detail-value">3:00 PM Friday — bring a form of ID</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Tip</span>
+                        <span class="detail-value">Arrive by 6:00 PM to avoid last-minute queues</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="card-title">Team Registration</div>
+                <ul class="hack-list">
+                    <li>Teams must have a minimum of 4 people</li>
+                    <li>Teams register by <strong style="color: var(--text-light);">23:59 on Friday March 6th</strong></li>
+                    <li>Submit your team via the link that will be shared on Discord</li>
+                </ul>
+            </div>
+
+            <div class="info-card warning">
+                <div class="card-title">⚠ Friday Evening — Don't Miss It</div>
+                <p style="margin-bottom: 12px;">The event begins on the <strong style="color: var(--text-light);">3rd Floor</strong> of MIT Media Lab. After 9 PM we move to the Hackathon space on the <strong style="color: var(--text-light);">6th Floor</strong>.</p>
+                <ul class="hack-list">
+                    <li>All event info and rules are covered</li>
+                    <li>Equipment and kits handed out</li>
+                    <li>Teams are formed</li>
+                    <li>Sponsor workshops begin</li>
+                </ul>
+            </div>
+
+            <div class="info-card" style="margin-bottom: 0;">
+                <div class="card-title">Saturday & Sunday</div>
+                <ul class="hack-list">
+                    <li>All events take place on the <strong style="color: var(--text-light);">6th Floor</strong> of MIT Media Lab</li>
+                    <li>Hacks must be finished by <strong style="color: var(--text-light);">2:59 PM Sunday</strong> — judging starts at 3:00 PM sharp</li>
+                    <li>Each team gets <strong style="color: var(--text-light);">2 minutes</strong> to present</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ── WHAT TO BRING ── -->
+        <div class="hack-section">
+            <h2>What to Bring</h2>
+            <p>Bring your laptop, chargers, and any personal tools. Each team gets a <strong style="color: var(--text-light);">Hacker Bag</strong> with core components, plus access to our Parts Bank, 3D printers, and fab labs.</p>
+            <a class="hack-btn" href="https://docs.google.com/spreadsheets/d/1CDTatlx8k5W17N8c43P9qXTnRZrPtSbw6BsRqF9m4_k/edit?usp=sharing" target="_blank" rel="noopener noreferrer">View Inventory List</a>
+        </div>
+
+        <!-- ── WORKSHOPS ── -->
+        <div class="hack-section">
+            <h2>Workshops</h2>
+            <p>Hands-on sessions to get you up to speed on hardware, tools, and APIs — highly recommended! Workshops start Friday night and continue Saturday morning.</p>
+
+            <table class="workshop-table">
+                <thead>
+                    <tr>
+                        <th>When</th>
+                        <th>Who</th>
+                        <th>Where</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-time">Fri 20:15–20:45</td>
+                        <td class="col-who">GigLabs</td>
+                        <td class="col-where">Room 240</td>
+                        <td>Future of work: "What if anyone could be a scientist just by putting on a pair of glasses"<br><span class="workshop-badge">Limited to 7 teams</span></td>
+                    </tr>
+                    <tr>
+                        <td class="col-time">Fri 20:15–20:45</td>
+                        <td class="col-who">VIAM</td>
+                        <td class="col-where">Room 341</td>
+                        <td><a href="https://www.viam.com/resources/rover" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none;">Build your own VIAM Rover</a><br><span class="workshop-badge">Limited to 10 teams</span></td>
+                    </tr>
+                    <tr>
+                        <td class="col-time">Sat 10:00–10:25</td>
+                        <td class="col-who">IFM</td>
+                        <td class="col-where">Auditorium 633</td>
+                        <td style="color: var(--text-dim); opacity: 0.6;">TBC</td>
+                    </tr>
+                    <tr>
+                        <td class="col-time">Sat 10:30–10:55</td>
+                        <td class="col-who" style="color: var(--text-dim); opacity: 0.6;">TBC</td>
+                        <td class="col-where">Auditorium 633</td>
+                        <td style="color: var(--text-dim); opacity: 0.6;">TBC</td>
+                    </tr>
+                    <tr>
+                        <td class="col-time">Sat 11:00–11:25</td>
+                        <td class="col-who">Roc.Camera</td>
+                        <td class="col-where">Auditorium 633</td>
+                        <td style="color: var(--text-dim); opacity: 0.6;">TBC</td>
+                    </tr>
+                    <tr>
+                        <td class="col-time">Sat 11:30–11:55</td>
+                        <td class="col-who" style="color: var(--text-dim); opacity: 0.6;">TBC</td>
+                        <td class="col-where">Auditorium 633</td>
+                        <td style="color: var(--text-dim); opacity: 0.6;">TBC</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ── EVENT SCHEDULE ── -->
+        <div class="hack-section">
+            <h2>Event Schedule</h2>
+
+            <div class="schedule-tabs">
+                <button class="schedule-tab active" data-day="friday">Friday Mar 6</button>
+                <button class="schedule-tab" data-day="saturday">Saturday Mar 7</button>
+                <button class="schedule-tab" data-day="sunday">Sunday Mar 8</button>
+            </div>
+
+            <!-- FRIDAY -->
+            <div class="schedule-timeline" data-day="friday">
+                <div class="timeline-item">
+                    <div class="timeline-time">3:00 PM</div>
+                    <div class="timeline-title">Check-in & Badge Registration <span class="timeline-location">1F – Main Entrance</span></div>
+                    <p>Doors open. Bring a form of ID.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">7:00 PM – 7:15 PM</div>
+                    <div class="timeline-title">Welcome to HARD MODE <span class="timeline-location">3F Atrium</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">7:15 PM – 7:30 PM</div>
+                    <div class="timeline-title">Speaker Block #1 – AHA + Welcome to Media Lab <span class="timeline-location">3F Atrium</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">7:30 PM – 7:45 PM</div>
+                    <div class="timeline-title">Speaker #2 – AI × Hardware + Design <span class="timeline-location">3F Atrium</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">7:45 PM – 8:00 PM</div>
+                    <div class="timeline-title">Logistics <span class="timeline-location">3F Atrium</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">8:00 PM – 8:10 PM</div>
+                    <div class="timeline-title">Info Session and Orientation <span class="timeline-location">3F Atrium</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">8:15 PM – 9:00 PM</div>
+                    <div class="timeline-title">Team Forming — 6 Zones, 1 per Track <span class="timeline-location">3F Atrium</span></div>
+                    <p>Team registration opens. Hacker Bag handout begins.</p>
+                </div>
+                <div class="timeline-item concurrent">
+                    <div class="timeline-time">8:15 PM – 9:00 PM</div>
+                    <div class="timeline-title">Workshop: VIAM — Build a Rover <span class="timeline-location">Room 341</span></div>
+                </div>
+                <div class="timeline-item concurrent">
+                    <div class="timeline-time">8:15 PM – 9:00 PM</div>
+                    <div class="timeline-title">Workshop: GigLab — Future of Work <span class="timeline-location">Room 240</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">9:00 PM</div>
+                    <div class="timeline-title">6th Floor Opens <span class="timeline-location">6F</span></div>
+                    <p>Teams can head upstairs and claim one table as their workspace.</p>
+                </div>
+                <div class="timeline-item deadline">
+                    <div class="timeline-time">11:59 PM</div>
+                    <div class="timeline-title">Team Registration Deadline</div>
+                    <p>All teams must be registered before midnight.</p>
+                </div>
+            </div>
+
+            <!-- SATURDAY -->
+            <div class="schedule-timeline" data-day="saturday" style="display: none;">
+                <div class="timeline-item">
+                    <div class="timeline-time">8:00 AM – 9:00 AM</div>
+                    <div class="timeline-title">Breakfast <span class="timeline-location">6F – Food Area</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">9:00 AM – 12:00 PM</div>
+                    <div class="timeline-title">Hacking Session #1 <span class="timeline-location">6F – Workspace</span></div>
+                </div>
+                <div class="timeline-item concurrent">
+                    <div class="timeline-time">10:00 AM – 10:25 AM</div>
+                    <div class="timeline-title">Workshop: IFM <span class="timeline-location">6F – Auditorium</span></div>
+                </div>
+                <div class="timeline-item concurrent">
+                    <div class="timeline-time">10:30 AM – 10:55 AM</div>
+                    <div class="timeline-title">Workshop: TBC <span class="timeline-location">6F – Auditorium</span></div>
+                </div>
+                <div class="timeline-item concurrent">
+                    <div class="timeline-time">11:00 AM – 11:25 AM</div>
+                    <div class="timeline-title">Workshop: Roc.Camera <span class="timeline-location">6F – Auditorium</span></div>
+                </div>
+                <div class="timeline-item concurrent">
+                    <div class="timeline-time">11:30 AM – 11:55 AM</div>
+                    <div class="timeline-title">Workshop: TBC <span class="timeline-location">6F – Auditorium</span></div>
+                </div>
+                <div class="timeline-item keynote">
+                    <div class="timeline-time">12:30 PM – 1:30 PM</div>
+                    <div class="timeline-title">Lunch + Keynote: Marc Raibert & SPOT <span class="timeline-location">6F – Auditorium</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">1:30 PM – 7:00 PM</div>
+                    <div class="timeline-title">Hacking Session #2 <span class="timeline-location">6F – Workspace</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">7:00 PM – 8:00 PM</div>
+                    <div class="timeline-title">Dinner <span class="timeline-location">6F – Food Area</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">8:00 PM – 12:00 AM</div>
+                    <div class="timeline-title">Hacking Session #3 <span class="timeline-location">6F – Build Space</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00 PM</div>
+                    <div class="timeline-title">Snack Drop <span class="timeline-location">6F – Food Area</span></div>
+                </div>
+            </div>
+
+            <!-- SUNDAY -->
+            <div class="schedule-timeline" data-day="sunday" style="display: none;">
+                <div class="timeline-item">
+                    <div class="timeline-time">8:00 AM – 9:00 AM</div>
+                    <div class="timeline-title">Breakfast <span class="timeline-location">6F – Food Area</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">9:00 AM – 2:59 PM</div>
+                    <div class="timeline-title">Final Build Sprint <span class="timeline-location">6F – Workspace</span></div>
+                </div>
+                <div class="timeline-item deadline">
+                    <div class="timeline-time">2:30 PM</div>
+                    <div class="timeline-title">Slide Deadline <span class="timeline-location">6F – Workspace</span></div>
+                </div>
+                <div class="timeline-item deadline">
+                    <div class="timeline-time">2:59 PM</div>
+                    <div class="timeline-title">EVERYONE STOPS BUILDING <span class="timeline-location">6F – Workspace</span></div>
+                    <p>Tools down. No further changes to projects after this point.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">3:00 PM – 5:00 PM</div>
+                    <div class="timeline-title">Demos & Judging <span class="timeline-location">6F – Workspace</span></div>
+                    <p>Each team has 2 minutes to present.</p>
+                </div>
+                <div class="timeline-item concurrent">
+                    <div class="timeline-time">3:00 PM – 5:00 PM</div>
+                    <div class="timeline-title">Team Portraits <span class="timeline-location">6F – Cloak Room</span></div>
+                    <p>Get your portrait taken after your team is judged.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">5:00 PM – 5:30 PM</div>
+                    <div class="timeline-title">Judge Deliberation <span class="timeline-location">6F – Auditorium</span></div>
+                </div>
+                <div class="timeline-item concurrent">
+                    <div class="timeline-time">5:00 PM – 5:30 PM</div>
+                    <div class="timeline-title">Teams Clean-Up <span class="timeline-location">6F – Workspace</span></div>
+                </div>
+                <div class="timeline-item keynote">
+                    <div class="timeline-time">5:30 PM – 6:00 PM</div>
+                    <div class="timeline-title">Awards & Closing Ceremony <span class="timeline-location">Main Stage</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">6:00 PM – 7:00 PM</div>
+                    <div class="timeline-title">Clean Up <span class="timeline-location">All Areas</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── PRIZES ── -->
+        <div class="hack-section">
+            <h2>Prizes</h2>
+            <div class="info-card">
+                <div class="card-title">Grand Prizes</div>
+                <ul class="hack-list">
+                    <li>$50K SAFE venture prize</li>
+                    <li>Track winner prizes — $1,000 per winning team</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <div class="card-title">Sponsor Prizes</div>
+                <p style="margin-bottom: 14px;">Details to be posted. Prizes from:</p>
+                <div class="sponsor-prize-grid">
+                    <div class="sponsor-prize-item">Anthropic</div>
+                    <div class="sponsor-prize-item">Akamai</div>
+                    <div class="sponsor-prize-item">Qualcomm</div>
+                    <div class="sponsor-prize-item">GigLabs</div>
+                    <div class="sponsor-prize-item">Tenstorrent</div>
+                    <div class="sponsor-prize-item">SEEED Studio</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── TEAMS ── -->
+        <div class="hack-section">
+            <h2>Teams</h2>
+            <p>Teams are <strong style="color: var(--text-light);">4–6 people</strong>. You can team up beforehand via Discord or during the team formation session Friday night.</p>
+        </div>
+
+        <!-- ── COMMUNICATION ── -->
+        <div class="hack-section">
+            <h2>Communication</h2>
+            <p>We use Discord for day-to-day communication and email for major announcements.</p>
+
+            <div class="discord-block">
+                <div class="channel">#get-help</div>
+                <div class="channel-desc">Post questions here for fast responses from the team and fellow participants.</div>
+
+                <div class="channel">@hardmodeagent</div>
+                <div class="channel-desc">Tag this bot for automated help and quick answers.</div>
+
+                <div class="channel">@organizers</div>
+                <div class="channel-desc">Escalate to a human organizer for anything urgent.</div>
+            </div>
+
+            <div class="consent-note">
+                📸 Photography and video will be taking place throughout the event. You will be required to sign a consent form at registration to attend.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Schedule tab switching
+        document.querySelectorAll('.schedule-tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                const day = this.dataset.day;
+                document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.schedule-timeline').forEach(tl => {
+                    tl.style.display = tl.dataset.day === day ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+
+</body>
+</html>
