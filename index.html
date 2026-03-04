@@ -34,7 +34,7 @@
         </button>
         <ul id="nav-menu">
             <li><a href="hack.html" class="nav-link nav-hack">HACK</a></li>
-            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#hero" class="nav-link">Home</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#join" class="nav-link">Join</a></li>
             <li><a href="#schedule" class="nav-link">Schedule</a></li>
@@ -1006,6 +1006,16 @@
         function updateActiveNav() {
             if (!rightPanel) return;
             const scrollY = rightPanel.scrollTop;
+
+            // Don't highlight anything at the very top
+            if (scrollY < 50) {
+                navLinks.forEach(link => {
+                    if (!link.classList.contains('nav-hack')) {
+                        link.classList.remove('active');
+                    }
+                });
+                return;
+            }
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 150;
@@ -1014,9 +1024,11 @@
                 
                 if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
                     navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
+                        if (!link.classList.contains('nav-hack')) {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
                         }
                     });
                 }

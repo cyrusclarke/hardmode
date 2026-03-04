@@ -125,6 +125,7 @@ nav ul {
     display: flex;
     gap: 30px;
     justify-content: flex-end;
+    align-items: center;
 }
 
 nav a {
@@ -143,23 +144,45 @@ nav a:hover, nav a.active {
 }
 
 /* HACK nav entry — pill button */
+@keyframes hack-pulse {
+    0%   { box-shadow: 0 0 8px rgba(0,255,65,0.5), 0 0 20px rgba(0,255,65,0.2); }
+    50%  { box-shadow: 0 0 18px rgba(0,255,65,0.9), 0 0 40px rgba(0,255,65,0.45); }
+    100% { box-shadow: 0 0 8px rgba(0,255,65,0.5), 0 0 20px rgba(0,255,65,0.2); }
+}
+
+@keyframes hack-flicker {
+    0%, 94%, 96%, 100% { opacity: 1; }
+    95%                 { opacity: 0.7; }
+}
+
 .nav-hack {
     color: #000 !important;
     background: var(--primary-color) !important;
     font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace !important;
-    font-size: 1em !important;
+    font-size: 1.1em !important;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    padding: 6px 16px !important;
-    border-radius: 4px;
-    transition: background 0.2s, box-shadow 0.2s !important;
-    box-shadow: 0 0 12px rgba(0, 255, 65, 0.35);
+    letter-spacing: 0.14em;
+    padding: 10px 26px !important;
+    border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.25) !important;
+    border-bottom: 3px solid rgba(0,0,0,0.3) !important;
+    border-right: 2px solid rgba(0,0,0,0.15) !important;
+    line-height: 1;
+    animation: hack-pulse 2s ease-in-out infinite, hack-flicker 6s step-end infinite;
+    transition: transform 0.1s, filter 0.1s !important;
+    position: relative;
+    text-shadow: none;
+    display: inline-block;
 }
 
 .nav-hack:hover {
-    background: #00e857 !important;
+    background: #00ff41 !important;
     color: #000 !important;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.6) !important;
+    transform: translateY(1px);
+    border-bottom-width: 2px !important;
+    animation: none !important;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.8) !important;
+    filter: brightness(1.1);
 }
 
 /* Nav Title - HARD MODE in nav bar */
@@ -2019,11 +2042,12 @@ footer {
     .nav-hack {
         display: inline-block !important;
         margin: 8px auto 4px auto !important;
-        padding: 10px 32px !important;
+        padding: 12px 40px !important;
         border-radius: 4px !important;
         border-left: none !important;
         text-align: center !important;
         width: auto !important;
+        font-size: 1.3em !important;
     }
 
     .nav-hack:hover {
