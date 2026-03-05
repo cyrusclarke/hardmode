@@ -2907,6 +2907,19 @@ footer {
     transform: scale(1.5);
 }
 
+/* BootLoop, VIAM, Murata - scale down */
+.sponsor-logo img[src*="BootLoop"] {
+    transform: scale(0.65);
+}
+
+.sponsor-logo img[src*="VIAM"] {
+    transform: scale(0.7);
+}
+
+.sponsor-logo img[src*="Murata"] {
+    transform: scale(0.7);
+}
+
 @media (max-width: 1024px) {
     .sponsor-logo img[src*="akamai-logo-white.png"] {
         max-height: 100px !important;
