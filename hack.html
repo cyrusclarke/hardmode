@@ -162,17 +162,17 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            font-size: 0.95em;
+            font-size: 1.05em;
         }
 
         .workshop-table thead th {
             font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
-            font-size: 0.8em;
+            font-size: 0.9em;
             color: var(--primary-color);
             letter-spacing: 0.08em;
             text-transform: uppercase;
             text-align: left;
-            padding: 10px 14px;
+            padding: 12px 16px;
             border-bottom: 1px solid rgba(0, 255, 65, 0.3);
         }
 
@@ -186,29 +186,31 @@
         }
 
         .workshop-table td {
-            padding: 14px 14px;
+            padding: 18px 16px;
             color: var(--text-dim);
-            line-height: 1.5;
+            line-height: 1.6;
             vertical-align: top;
+            font-size: 1em;
         }
 
         .workshop-table .col-time {
             font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
-            font-size: 0.85em;
+            font-size: 1em;
             color: var(--text-light);
             white-space: nowrap;
-            min-width: 130px;
+            min-width: 150px;
         }
 
         .workshop-table .col-who {
-            font-weight: 500;
+            font-size: 1.05em;
+            font-weight: 600;
             color: var(--text-light);
             white-space: nowrap;
         }
 
         .workshop-table .col-where {
             font-family: 'Flexi_IBM_VGA_True', 'Courier New', monospace;
-            font-size: 0.8em;
+            font-size: 0.95em;
             color: var(--primary-color);
             white-space: nowrap;
         }
@@ -322,7 +324,7 @@
 
         @media (max-width: 640px) {
             .sponsor-prize-grid { grid-template-columns: 1fr; }
-            .workshop-table { font-size: 0.85em; }
+            .workshop-table { font-size: 0.95em; }
             .workshop-table .col-time { min-width: auto; }
             .timeline-item.concurrent { margin-left: 10px; }
         }
@@ -545,7 +547,11 @@
             <!-- SATURDAY -->
             <div class="schedule-timeline" data-day="saturday" style="display: none;">
                 <div class="timeline-item">
-                    <div class="timeline-time">8:00 AM – 9:00 AM</div>
+                    <div class="timeline-time">8:00 AM</div>
+                    <div class="timeline-title">Doors Open <span class="timeline-location">6F</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">9:00 AM</div>
                     <div class="timeline-title">Breakfast <span class="timeline-location">6F – Food Area</span></div>
                 </div>
                 <div class="timeline-item">
@@ -585,7 +591,11 @@
             <!-- SUNDAY -->
             <div class="schedule-timeline" data-day="sunday" style="display: none;">
                 <div class="timeline-item">
-                    <div class="timeline-time">8:00 AM – 9:00 AM</div>
+                    <div class="timeline-time">8:00 AM</div>
+                    <div class="timeline-title">Doors Open <span class="timeline-location">6F</span></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">9:00 AM</div>
                     <div class="timeline-title">Breakfast <span class="timeline-location">6F – Food Area</span></div>
                 </div>
                 <div class="timeline-item">
@@ -626,6 +636,28 @@
                 <div class="timeline-item">
                     <div class="timeline-time">6:00 PM – 7:00 PM</div>
                     <div class="timeline-title">Clean Up <span class="timeline-location">All Areas</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── JUDGING CRITERIA ── -->
+        <div class="hack-section">
+            <h2>Judging Criteria</h2>
+
+            <div class="info-two-col">
+                <div class="info-card" style="margin-bottom: 0;">
+                    <div class="card-title">Core Criteria</div>
+                    <ul class="hack-list" style="margin-top: 8px;">
+                        <li><strong style="color: var(--text-light);">Impact / Vision</strong> — Does this solve a real problem? Does it have a compelling future?</li>
+                        <li><strong style="color: var(--text-light);">Innovation</strong> — Is the approach genuinely novel?</li>
+                        <li><strong style="color: var(--text-light);">Human Flourishing</strong> — Does it make people's lives meaningfully better?</li>
+                        <li><strong style="color: var(--text-light);">Design / UX</strong> — Is it thoughtfully designed and easy to engage with?</li>
+                        <li><strong style="color: var(--text-light);">Prototype Quality</strong> — Does it work? How complete and polished is it?</li>
+                    </ul>
+                </div>
+                <div class="info-card warning" style="margin-bottom: 0;">
+                    <div class="card-title">✦ Bonus Points</div>
+                    <p>Discretionary points for something that genuinely surprises the judges — the <strong style="color: var(--text-light);">"wow factor"</strong> or <strong style="color: var(--text-light);">"I've never seen that before"</strong> reaction.</p>
                 </div>
             </div>
         </div>
