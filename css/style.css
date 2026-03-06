@@ -2920,6 +2920,16 @@ footer {
     transform: scale(0.7);
 }
 
+/* Nvidia - scale up */
+.sponsor-logo img[src*="Nvidia"] {
+    transform: scale(1.4);
+}
+
+/* igus - scale down */
+.sponsor-logo img[src*="igus"] {
+    transform: scale(0.7);
+}
+
 @media (max-width: 1024px) {
     .sponsor-logo img[src*="akamai-logo-white.png"] {
         max-height: 100px !important;
